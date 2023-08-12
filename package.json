@@ -1,0 +1,56 @@
+{
+	"name": "prisma",
+	"version": "1.0.0",
+	"main": "src/app.ts",
+	"license": "MIT",
+	"engines": {
+		"node": ">=16"
+	},
+	"scripts": {
+		"start": "node dist/app.js",
+		"dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+		"build": "tsc",
+		"lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
+		"lint:fix": "eslint src/**/*.ts{,x} --fix",
+		"lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+		"prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+		"lint:prettier": "yarn lint:check && yarn prettier:check",
+		"linit:init": "yarn add -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier prettier"
+	},
+	"lint-staged": {
+		"src/**/*.ts": "yarn lint:prettier"
+	},
+	"dependencies": {
+		"@types/bcrypt": "^5.0.0",
+		"@types/cookie-parser": "^1.4.3",
+		"@types/jsonwebtoken": "^9.0.2",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"http-errors": "^2.0.0",
+		"http-status": "^1.6.2",
+		"winston": "^3.9.0",
+		"winston-daily-rotate-file": "^4.7.1"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.13",
+		"@types/express": "^4.17.17",
+		"@types/mongoose": "^5.11.97",
+		"@types/node": "^20.4.10",
+		"@typescript-eslint/eslint-plugin": "^6.3.0",
+		"@typescript-eslint/parser": "^6.3.0",
+		"eslint": "^8.47.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-typescript": "^17.1.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-import-resolver-typescript": "^3.6.0",
+		"eslint-plugin-import": "^2.28.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"prettier": "^3.0.1",
+		"prettier-plugin-organize-imports": "^3.2.3",
+		"prisma": "^5.1.1",
+		"ts-node-dev": "^2.0.0",
+		"typescript": "^5.0.4"
+	}
+}
