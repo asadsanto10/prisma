@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/api/v1/', userRoutes);
+app.use('/api/v1/user', userRoutes);
 
 app.listen(port, () => {
 	console.log(`linserver listening on port:${port}`);
