@@ -1,10 +1,9 @@
 import express from 'express';
 
+import { createUser } from './user.controller';
+
 const router = express.Router();
 
-// const adminAuth = auth(userRole.ADMIN) as never;
-
-// router.get('/users', adminAuth, getAllUsers);
-// router.get('/users/:id', adminAuth, getUserById);
+router.post('/user', createUser);
 
 export const userRoutes = router;

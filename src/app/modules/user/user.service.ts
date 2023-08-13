@@ -1,14 +1,12 @@
-/* eslint-disable no-param-reassign */
-import { IUser } from './user.interface';
-import { User } from './user.model';
+import { PrismaClient, User } from '@prisma/client';
 
-const createUser = async (userData: IUser): Promise<Partial<IUser> | null> => {
-	const user = await User.create(userData);
-	if (!user) {
-		throw new Error('Failed to create user');
-	}
-	const { password, ...response } = user.toObject();
-	return response;
+const prisma = new PrismaClient();
+
+const createUser = async (userData: User): Promise<User> => {
+	const result = await prisma.user.create({
+		data: userData,
+	});
+	return result;
 };
 
 export const userService = { createUser };

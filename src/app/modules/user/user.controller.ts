@@ -1,21 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-
+import { User } from '@prisma/client';
 import { RequestHandler } from 'express';
 
-import { IUser } from './user.interface';
 import { userService } from './user.service';
 
-export const createUser: RequestHandler = async (req, res, next): Promise<void> => {
+export const createUser: RequestHandler = async (req, res): Promise<void> => {
 	try {
-		const data = req.body as IUser;
+		const data = req.body as User;
 		const result = await userService.createUser(data);
-		// sendResponse<Partial<IUser>>(res, {
-		// 	statusCode: httpStatus.OK,
-		// 	status: true,
-		// 	message: 'user create successfully',
-		// 	data: result,
-		// });
+		res.json({ message: 'user created successfully1', statusbar: 'success', result });
 	} catch (error) {
-		next(error);
+		console.log(error);
+		res.json(error);
 	}
 };
