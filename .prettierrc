@@ -1,6 +1,6 @@
 {
 	"indentStyle": "space",
-	"useTabs": true,
+	"useTabs": false,
 	"trailingComma": "es5",
 	"singleQuote": true,
 	"printWidth": 100,
